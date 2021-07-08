@@ -12,7 +12,7 @@ export class Helper {
   }
 
   /**
-  clicks the button for the specified id
+  Clicks the button for the specified id
   */
   idClick(id: string) {
     element(by.id(id)).click();
