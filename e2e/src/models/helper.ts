@@ -1,31 +1,43 @@
 import { browser, element, by } from 'protractor';
-import { Helper } from './models/helper';
 
 export class Helper {
 
-  constructor() {}
+  constructor() { }
 
-    /**
-    This method loads the home page
-    */
-    export function loadHomePage() {
-      browser.get('/');
-    }
+  /**
+  Loads the home page
+  */
+  loadHome() {
+    browser.get('/');
+  }
 
-    /**
-    This method clicks the button with the specified id
-    */
-    idClick(id: string) {
-      element(by.id(id)).click();
-    }
+  /**
+  clicks the button for the specified id
+  */
+  idClick(id: string) {
+    element(by.id(id)).click();
+  }
 
-    /**
-    This method checks that the specified id's text is
-    equal to the expected result
-    */
-    export function idExpectedToEqual(id: string, expectation: string) {
-      let actual = element(by.id(id)).getText();
-      expect(actual).toEqual(expectation);
-    }
+  /**
+  Checks that the specified id's text is equal to the expected result
+  */
+  idExpectToEqual(id: string, expectation: string) {
+    let actual = element(by.id(id)).getText();
+    expect(actual).toEqual(expectation);
+  }
 
+  /**
+  Sends a key value for the specified id
+  */
+  idSendKeys(id: string, key: string) {
+    element(by.id(id)).sendKeys(key);
+  }
+
+  /**
+  Checks the value of the id to see if it matches the expected phrase
+  */
+  idValueExpectToEqual(id: string, expectation: string) {
+    let value = element(by.id(id)).getAttribute('value');
+    expect(value).toEqual(expectation);
+  }
 }
